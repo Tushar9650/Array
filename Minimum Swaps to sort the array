@@ -1,0 +1,24 @@
+int minSwaps(vector<int>&nums)
+	{
+	    int result = 0;
+	    vector<pair<int,int>> m;
+	    
+	    for(int i=0;i<nums.size();i++){
+	        pair<int,int> temp;
+	        temp.first = nums[i];
+	        temp.second = i;
+	        m.push_back(temp);
+	    }
+	    
+	    sort(m.begin(),m.end());
+	    for(int i=0;i<nums.size();i++){
+	        if(i!=m[i].second){
+	            swap(m[i],m[m[i].second]);
+	             result++;
+	             i--;
+	        }
+	       
+	    }
+	    
+	    return result;
+	}
